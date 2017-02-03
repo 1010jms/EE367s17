@@ -77,46 +77,37 @@ rotate(list, shift);
 
 void rotate(struct LinkedList *list, int n)
 {
-// You can delete the following line.
-printf("The list is rotated to the right by %d positions\n",n);
 
-struct ListNode ** current_ref;
-struct ListNode * temp;
-int count = 0;
-int target = 0;
+	struct ListNode ** current_ref;
+	struct ListNode * temp;
+	struct ListNode * temp2;
 
-current_ref = &(list->head);
-//temp = (*current_ref)->next;
+	for(int count = 0; count < n; count++){
+		current_ref = &(list->head);
 
-/*while(list->head != NULL){
-	while(&(*current_ref)->next != NULL){
-		current_ref = &((*current_ref)->next);
+		while((*current_ref)->next != NULL){
+			current_ref = &((*current_ref)->next);
+		}
+
+		temp = *current_ref;
+		current_ref = &(list->head);
+		temp->next = (*current_ref)->next;
+
+		while((*current_ref)->next != list->head){
+			printf("%s", (*current_ref)->word);
+			temp2 = *current_ref;
+			printf("%s",temp2->word);
+			*current_ref = temp;
+			printf("%s",(*current_ref)->word); 
+			temp = temp2;
+			printf("%s",temp->word);
+			current_ref = &((*current_ref)->next);
+			printf("%s",(*current_ref)->next);
+			printf("\n");
+		}
+
+		(*current_ref)->next = NULL;
 	}
-
-	(*current_ref)->next = *current_ref;
-	current_ref = &(list->head);
-}*/
-
-//while(n <= 6){
-	while(target <= n-1){
-		current_ref = &((*current_ref)->next);
-		target++;
-	}
-	
-	temp = (*current_ref)->next;
-	while(list->head != NULL){
-		(*current_ref)->next = *current_ref;
-		*current_ref = &(**current_ref);
-	}
-	*current_ref = temp;
-
-	/*list->head = *current_ref;
-	current_ref = &temp;
-	temp = ((*current_ref)->next);
-	n++;
-	count++;
-	target = count;*/
-//}
 }
 
 
