@@ -1,0 +1,23 @@
+#!/bin/sh
+
+#Set "Data" into argument list
+set Data/datafile*
+
+val=$#
+
+#set var1 = Data/datafile-1
+#set var2 = Data/datafile-2
+#set var3 = Data/datafile-3
+#set var4 = Data/datafile-4
+#set var5 = Data/datafile-5
+#set var6 = Data/datafile-6
+#set var7 = Data/datafile-7
+#set var8 = Data/datafile-8
+#set var9 = Data/datafile-9
+
+
+gcc sum.c
+./a.out
+
+echo If only this shows up, nothing worked.
+
